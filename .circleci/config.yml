@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           command: | 
-            echo "This is my saved text" > output.txt
+            echo "This is my saved text" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
@@ -21,7 +21,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-        at: ~/
+          at: ~/
       - run:
           command: |
             cat ~/output.txt        
